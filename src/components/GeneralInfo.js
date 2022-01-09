@@ -1,16 +1,14 @@
 import React, { Component } from 'react'
-import { GlobalContext} from '../context/GlobalState'
 import EditInfoForm from '../components/EditInfoForm'
 
 import '../styles/GeneralInfo.css';
 
 class GeneralInfo extends Component {
-    static contextType = GlobalContext;
 
     constructor(){
         super();
         this.state = {
-            formOpen: false
+            formOpen: true
         }
     }
 
@@ -19,13 +17,15 @@ class GeneralInfo extends Component {
     };
 
     render() {
+        const firstName = this.props.state.firstName;
+        const lastName = this.props.state.lastName;
         return (
             <div className='generalInfoContainer'>
-                <h2>{this.context.info.firstName} {this.context.info.lastName}</h2>
-                <p>{this.context.info.email}</p>
-                <p>{this.context.info.phone}</p>
+                <h2>{firstName} {lastName}</h2>
+                <p>{this.props.state.email}</p>
+                <p>{this.props.state.phone}</p>
                 <button onClick={() => this.toggleForm()}>Edit</button>
-                {this.state.formOpen &&<EditInfoForm />}
+                {this.state.formOpen &&<EditInfoForm state = {this.props.state} onInfoChange={this.props.onInfoChange}/>}
             </div>
         )
     }

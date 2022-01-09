@@ -4,24 +4,58 @@ import EduInfo from './components/EduInfo'
 import Experience from './components/Experience'
 import './styles/App.css';
 
-import { GlobalContext} from './context/GlobalState';
-import { GlobalProvider} from './context/GlobalState';
-
 class App extends Component {
-    static contextType = GlobalContext;
+    constructor(props) {
+        super(props);
+        this.handleInfoChange = this.handleInfoChange.bind(this);
+        this.state = {
+            firstName: ''
+            }; 
+        }
+    
+        handleInfoChange(firstName) {
+        this.setState({firstName});
+        console.log('this works');
+        }
 
     render() {
+        const firstName = this.state.firstName;
         return (
-            <GlobalProvider>
             <div className='app'>
                 <h1>Curriculum Vitae</h1>
-                <GeneralInfo />
-                <EduInfo />
-                <Experience />
+                <GeneralInfo state = {this.state} onInfoChange={this.handleInfoChange}/>
+                {/* <EduInfo />
+                <Experience /> */}
             </div>
-            </GlobalProvider>
         )
     }
 }
 
 export default App
+
+
+/* const initialState = {
+    infoEdit: false,
+    educationEdit: false,
+    info: {
+        firstName: 'Seth',
+        lastName: 'Thomas',
+        email: 'example@example.com',
+        phone: '(555) 555-5555'
+    },
+    education: [
+        {id: 1,
+        name: 'SUNY Geneseo',
+        major: 'Physics',
+        degree: 'Bachelor of Arts',
+        graduationYear: '2011'
+        },
+
+        {id: 2,
+        name: 'University of South Carolina',
+        major: 'Physical Therapy',
+        degree: 'Doctorate',
+        graduationYear: '2018'
+        }
+    ]
+} */

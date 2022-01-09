@@ -1,9 +1,7 @@
 import React, { Component} from 'react'
-import { GlobalContext} from '../context/GlobalState'
 import '../styles/EduInfo.css';
 
 class EduInfo extends Component {
-    static contextType = GlobalContext;
     
     render() {
         return (
