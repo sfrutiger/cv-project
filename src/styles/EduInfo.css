@@ -1,0 +1,8 @@
+.eduInfoContainer {
+    background-color: lightcoral;
+    width: 75%;
+}
+
+.eduInfoContainer, ul {
+    list-style: none;
+}
