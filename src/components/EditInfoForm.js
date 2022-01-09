@@ -6,8 +6,10 @@ class EditInfoForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
+                info: {
                 firstName: '',
                 lastName: ''
+                }
         };
         this.handleChange = this.handleChange.bind(this);
         /* this.handleSubmit = this.handleSubmit.bind(this); */
@@ -24,7 +26,7 @@ class EditInfoForm extends Component {
                     <label htmlFor='firstName'>First Name</label>
                     <input name='firstName' type='text' placeholder='Enter first name' value={this.state.value} onChange={this.handleChange}></input>
                 </div>
-{/*                 <div className='form-item'>
+                <div className='form-item'>
                     <label htmlFor='lastName'>Last Name</label>
                     <input name='lastName' type='text' placeholder='Enter last name' value={this.state.value} onChange={this.handleChange}></input>
                 </div>
@@ -35,7 +37,7 @@ class EditInfoForm extends Component {
                 <div className='form-item'>
                     <label htmlFor='phone-number'>Phone number</label>
                     <input name='phone-number' type='tel' placeholder='(555) 555-5555'></input>
-                </div> */}
+                </div>
                 <div className='form-item'>
                     <input type='submit' value='Save'></input>
                 </div>

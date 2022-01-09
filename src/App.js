@@ -9,17 +9,19 @@ class App extends Component {
         super(props);
         this.handleInfoChange = this.handleInfoChange.bind(this);
         this.state = {
-            firstName: ''
-            }; 
+            firstName: '',
+            lastName: ''
+            };
         }
     
         handleInfoChange(firstName) {
-        this.setState({firstName});
-        console.log('this works');
+            this.setState({firstName});
         }
+        
 
     render() {
         const firstName = this.state.firstName;
+        const lastName = this.state.lastName;
         return (
             <div className='app'>
                 <h1>Curriculum Vitae</h1>
