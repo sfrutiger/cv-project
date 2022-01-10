@@ -11,22 +11,7 @@ class EduInfo extends Component {
         major: '',
         degree: '',
         graduationYear: '',
-        education: [
-        {
-            id: 1,
-            school: 'SUNY Geneseo',
-            major: 'Physics',
-            degree: 'Bachelor of Arts',
-            graduationYear: '2011'
-        },
-        {
-            id: 2,
-            school: 'University of South Carolina',
-            major: 'Physical Therapy',
-            degree: 'Doctorate',
-            graduationYear: '2018'
-        }
-        ],
+        education: [],
         edit: true
         };
     }
@@ -62,9 +47,6 @@ class EduInfo extends Component {
         })
     }
 
-    removeSchool = e => {
-        console.log(e.target.parentNode)
-    }
 
     submitEducation = e => {
         e.preventDefault();
@@ -81,6 +63,16 @@ class EduInfo extends Component {
             major: '',
             graduationYear: '',
             edit: false
+        })
+    }
+
+    removeSchool = e => {
+        const id = e.target.name;
+        const newEdu = this.state.education.filter(education => education.id !== id)
+        console.log(id)
+
+            this.setState({
+            education: newEdu
         })
     }
     
@@ -102,7 +94,7 @@ class EduInfo extends Component {
                         <li key={edu.id}>
                             <h2>{edu.school}</h2>
                             <p>{edu.degree}, {edu.major}, {edu.graduationYear}</p>
-                            <button onClick={this.removeSchool}>Remove</button>
+                            <button name = {edu.id} onClick={this.removeSchool}>Remove</button>
                         </li>
                     ))}
                 </ul>
