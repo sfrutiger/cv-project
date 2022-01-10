@@ -5,27 +5,12 @@ import Experience from './components/Experience'
 import './styles/App.css';
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-        this.handleInfoChange = this.handleInfoChange.bind(this);
-        this.state = {
-            firstName: '',
-            lastName: ''
-            };
-        }
-    
-        handleInfoChange(firstName) {
-            this.setState({firstName});
-        }
-        
 
     render() {
-        const firstName = this.state.firstName;
-        const lastName = this.state.lastName;
         return (
             <div className='app'>
                 <h1>Curriculum Vitae</h1>
-                <GeneralInfo state = {this.state} onInfoChange={this.handleInfoChange}/>
+                <GeneralInfo/>
                 {/* <EduInfo />
                 <Experience /> */}
             </div>

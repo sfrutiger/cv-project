@@ -5,12 +5,7 @@ import '../styles/GeneralInfo.css';
 class EditInfoForm extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-                info: {
-                firstName: '',
-                lastName: ''
-                }
-        };
+        this.state = this.props.state
         this.handleChange = this.handleChange.bind(this);
         /* this.handleSubmit = this.handleSubmit.bind(this); */
       }
