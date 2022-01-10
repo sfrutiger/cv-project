@@ -11,7 +11,11 @@ class GeneralInfo extends Component {
         firstName: '',
         lastName: '',
         email: '',
-        phone: ''
+        phone: '',
+        savedFirstName: '',
+        savedLastName: '',
+        savedEmail: '',
+        savedPhone: '',
         }
     }
 
@@ -46,6 +50,16 @@ class GeneralInfo extends Component {
         })
     }
 
+    submitInfo = e => {
+        e.preventDefault();
+        this.setState({
+                savedFirstName: this.state.firstName,
+                savedLastName: this.state.lastName,
+                savedEmail: this.state.email,
+                savedPhone: this.state.phone,
+                edit: false
+            })
+        };
     
 
     render() {
@@ -55,13 +69,18 @@ class GeneralInfo extends Component {
             lastName,
             email,
             phone,
+            savedFirstName,
+            savedLastName,
+            savedEmail,
+            savedPhone,
             } =this.state;
+
 
         return (
             <div className='generalInfoContainer'>
-                <h2>{firstName} {lastName}</h2>
-                <p>{email}</p>
-                <p>{phone}</p>
+                <h2>{savedFirstName} {savedLastName}</h2>
+                <p>{savedEmail}</p>
+                <p>{savedPhone}</p>
                 { edit &&
                 <form className='general-info-form'>
                     <div className='form-item'>
@@ -70,7 +89,7 @@ class GeneralInfo extends Component {
                              name='firstName' 
                              type='text' 
                              placeholder='Enter first name'
-                             value={firstName ? firstName : ''}
+                             value={savedFirstName ? savedFirstName : firstName}
                              onChange={this.handleFirstNameChange}></input>
                     </div>
                     <div className='form-item'>
@@ -79,7 +98,7 @@ class GeneralInfo extends Component {
                             name='lastName' 
                             type='text' 
                             placeholder='Enter last name'
-                            value={lastName ? lastName : ''}
+                            value={savedLastName ? savedLastName : lastName}
                             onChange={this.handleLastNameChange}></input>
                     </div>
                     <div className='form-item'>
@@ -88,7 +107,7 @@ class GeneralInfo extends Component {
                             name='email' 
                             type='email' 
                             placeholder='example@example.com'
-                            value={email ? email : ''}
+                            value={savedEmail ? savedEmail : email}
                             onChange={this.handleEmailChange}></input>
                     </div>
                     <div className='form-item'>
@@ -97,14 +116,14 @@ class GeneralInfo extends Component {
                             name='phone-number' 
                             type='tel' 
                             placeholder='(555) 555-5555'
-                            value={phone ? phone : ''}
+                            value={savedPhone ? savedPhone : phone}
                             onChange={this.handlePhoneChange}></input>
                     </div>
                 </form>}
-                <button onClick={this.toggleForm}>{edit ? 'Save': 'Edit'}</button>
+                { edit && <button onClick={this.submitInfo}>Save</button>}
+                <button onClick={this.toggleForm}>{edit ? 'Close': 'Edit'}</button>
             </div>
         )
     }
 }
-
 export default GeneralInfo
