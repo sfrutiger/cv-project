@@ -62,6 +62,10 @@ class EduInfo extends Component {
         })
     }
 
+    removeSchool = e => {
+        console.log(e.target.parentNode)
+    }
+
     submitEducation = e => {
         e.preventDefault();
         this.setState({
@@ -82,6 +86,7 @@ class EduInfo extends Component {
     
     render() {
         const {
+            id,
             school,
             degree,
             major,
@@ -97,6 +102,7 @@ class EduInfo extends Component {
                         <li key={edu.id}>
                             <h2>{edu.school}</h2>
                             <p>{edu.degree}, {edu.major}, {edu.graduationYear}</p>
+                            <button onClick={this.removeSchool}>Remove</button>
                         </li>
                     ))}
                 </ul>
