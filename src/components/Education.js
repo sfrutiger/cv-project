@@ -1,8 +1,8 @@
 import React, { Component} from 'react'
 import uniqid from 'uniqid';
-import '../styles/EduInfo.css';
+import '../styles/styles.css';
 
-class EduInfo extends Component {
+class Education extends Component {
     constructor() {
         super();
 
@@ -69,7 +69,6 @@ class EduInfo extends Component {
     removeSchool = e => {
         const id = e.target.name;
         const newEdu = this.state.education.filter(education => education.id !== id)
-        console.log(id)
 
             this.setState({
             education: newEdu
@@ -88,7 +87,8 @@ class EduInfo extends Component {
             } =this.state;
 
         return (
-            <div className ='eduInfoContainer'>
+            <div className ='section eduInfoContainer'>
+                <h2>Education</h2>
                 <ul>
                     {education.map(edu => (
                         <li key={edu.id}>
@@ -147,4 +147,4 @@ class EduInfo extends Component {
 }
 
 
-export default EduInfo;
+export default Education;

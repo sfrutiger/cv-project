@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../styles/GeneralInfo.css';
+import '../styles/styles.css';
 
 class GeneralInfo extends Component {
 //constructor
@@ -77,7 +77,8 @@ class GeneralInfo extends Component {
 
 
         return (
-            <div className='generalInfoContainer'>
+            <div className='section generalInfoContainer'>
+                { savedFirstName ? '': <h2>General Information</h2>}
                 <h2>{savedFirstName} {savedLastName}</h2>
                 <p>{savedEmail}</p>
                 <p>{savedPhone}</p>
@@ -89,7 +90,7 @@ class GeneralInfo extends Component {
                              name='firstName' 
                              type='text' 
                              placeholder='Enter first name'
-                             value={savedFirstName ? savedFirstName : firstName}
+                             value={firstName}
                              onChange={this.handleFirstNameChange}></input>
                     </div>
                     <div className='form-item'>
@@ -98,7 +99,7 @@ class GeneralInfo extends Component {
                             name='lastName' 
                             type='text' 
                             placeholder='Enter last name'
-                            value={savedLastName ? savedLastName : lastName}
+                            value={lastName}
                             onChange={this.handleLastNameChange}></input>
                     </div>
                     <div className='form-item'>
@@ -107,7 +108,7 @@ class GeneralInfo extends Component {
                             name='email' 
                             type='email' 
                             placeholder='example@example.com'
-                            value={savedEmail ? savedEmail : email}
+                            value={email}
                             onChange={this.handleEmailChange}></input>
                     </div>
                     <div className='form-item'>
@@ -116,7 +117,7 @@ class GeneralInfo extends Component {
                             name='phone-number' 
                             type='tel' 
                             placeholder='(555) 555-5555'
-                            value={savedPhone ? savedPhone : phone}
+                            value={phone}
                             onChange={this.handlePhoneChange}></input>
                     </div>
                 </form>}
